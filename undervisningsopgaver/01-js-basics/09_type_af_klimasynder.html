@@ -12,7 +12,7 @@
 
 
     <script>
-        let timer = 200;
+        let timer = 2;
         let kg = 109;
         let co2 = timer * kg;
         let resultat;
@@ -24,12 +24,12 @@
                 timer + " timer og udledt " +
                 co2 + "kg CO2. Tæt på Thunberg";
 
-        } else if (kg < 200) {
+        } else if (kg > 200) {
             resultat = "Du har fløjet " +
                 timer + " timer og udledt " +
                 co2 + "kg CO2. Jaja, du behøver ikke melde dig ud af Å";
 
-        } else if (kg < 600) {
+        } else if (kg > 600) {
             resultat = "Du har fløjet " +
                 timer + " timer og udledt " +
                 co2 + "kg CO2. Det er godt for turismen i Nordeuropa";
@@ -38,7 +38,6 @@
                 timer + " timer og udledt " +
                 co2 + "kg CO2. Nå ja, vi kan jo altid kolonisere en anden planet..."
         }
-
 
         console.log(resultat);
     </script>
