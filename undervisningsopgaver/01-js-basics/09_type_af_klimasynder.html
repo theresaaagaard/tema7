@@ -12,24 +12,24 @@
 
 
     <script>
-        let timer = 50;
+        let timer = 0.5;
         let kg = 109;
         let co2 = timer * kg;
         let resultat;
 
 
 
-        if (kg < 100) {
+        if (co2 < 100) {
             resultat = "Du har fløjet " +
                 timer + " timer og udledt " +
                 co2 + "kg CO2. Tæt på Thunberg";
 
-        } else if (kg < 200) {
+        } else if (co2 < 200) {
             resultat = "Du har fløjet " +
                 timer + " timer og udledt " +
                 co2 + "kg CO2. Jaja, du behøver ikke melde dig ud af Å";
 
-        } else if (kg < 600) {
+        } else if (co2 < 600) {
             resultat = "Du har fløjet " +
                 timer + " timer og udledt " +
                 co2 + "kg CO2. Det er godt for turismen i Nordeuropa";
