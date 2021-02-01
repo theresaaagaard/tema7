@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+
+    <script>
+        let timer = 200;
+        let kg = 109;
+        let co2 = timer * kg;
+        let resultat;
+
+
+
+        if (kg > 100) {
+            resultat = "Du har fløjet " +
+                timer + " timer og udledt " +
+                co2 + "kg CO2. Tæt på Thunberg";
+
+        } else if (kg < 200) {
+            resultat = "Du har fløjet " +
+                timer + " timer og udledt " +
+                co2 + "kg CO2. Jaja, du behøver ikke melde dig ud af Å";
+
+        } else if (kg < 600) {
+            resultat = "Du har fløjet " +
+                timer + " timer og udledt " +
+                co2 + "kg CO2. Det er godt for turismen i Nordeuropa";
+        } else {
+            resultat = "Du har fløjet " +
+                timer + " timer og udledt " +
+                co2 + "kg CO2. Nå ja, vi kan jo altid kolonisere en anden planet..."
+        }
+
+
+        console.log(resultat);
+    </script>
+</body></html>
