@@ -12,21 +12,38 @@
 
     <h2>Gæt et tal mellem 1 og 20</h2>
     <input type="text" id="tal">
-    <button>Klik</button>
+    <button>Gæt</button>
+    <button id="nyt spil">Nyt spil</button>
 
     <script>
-        let button = document.querySelector("button");
-        let input = document.querySelector("#tal").value;
-        let number = Math.floor((Math.random() * 20) + 1);
+        const number = Math.round(Math.random() * 20);
+        let antalGæt = 0;
         document.querySelector("button").addEventListener("click", buttonClicked);
 
         function buttonClicked() {
-            if (input == number) {
-                text.innerHTML = "Det er korrekt";
-            } else if (input < number) {
-                text.innerHTML = "For lavt!";
-            }
+            antalGæt++;
+            let guess = document.querySelector("#tal").value;
+            //            console.log("number", number);
+            console.log("Gæt:", guess);
 
+            if (guess == number) {
+                console.log("Rigtigt! Du har gættet " + antalGæt + " gange");
+            } else if (guess < number) {
+                console.log("For lavt. Du har gættet " + antalGæt + " gange")
+            } else {
+                console.log("For højt. Du har gættet " + antalGæt + " gange")
+            }
         }
+
+
+
+        //        function buttonClicked() {
+        //            if (input == number) {
+        //                text.innerHTML = "Det er korrekt";
+        //            } else if (input < number) {
+        //                text.innerHTML = "For lavt!";
+        //            }
+        //
+        //        }
     </script>
 </body></html>
