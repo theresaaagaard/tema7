@@ -12,21 +12,31 @@
 
 
     <script>
-        let time;
-        time = new Date().getHours();
-        let = resultat;
+        const time = new Date().getHours();
+        console.log(time);
 
 
-        if (time <= 10) {
-            resultat = "Godmorgen";
-        } else if (time <= 18) {
-            resultat = "Goddag";
-        } else if (time <= 24) {
-            resultat = "Godaften";
+        if (time < 5) {
+            console.log("Godnat");
+        } else if (time < 10) {
+            console.log("Godmorgen");
+        } else if (time < 18) {
+            console.log("Goddag");
         } else {
-            resultat = "Godnat";
+            console.log("Godaften");
         }
 
-        console.log(resultat);
+        //
+        //        if (time <= 10) {
+        //            resultat = "Godmorgen";
+        //        } else if (time <= 18) {
+        //            resultat = "Goddag";
+        //        } else if (time <= 24) {
+        //            resultat = "Godaften";
+        //        } else {
+        //            resultat = "Godnat";
+        //        }
+        //
+        //        console.log(resultat);
     </script>
 </body></html>

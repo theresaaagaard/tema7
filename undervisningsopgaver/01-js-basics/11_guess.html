@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <h2>Gæt et tal mellem 1 og 20</h2>
+    <input type="text" id="tal">
+    <button>Klik</button>
+
+    <script>
+        let button = document.querySelector("button");
+        let input = document.querySelector("#tal").value;
+        let number = Math.floor((Math.random() * 20) + 1);
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            if (input == number) {
+                text.innerHTML = "Det er korrekt";
+            } else if (input < number) {
+                text.innerHTML = "For lavt!";
+            }
+
+        }
+    </script>
+</body></html>
