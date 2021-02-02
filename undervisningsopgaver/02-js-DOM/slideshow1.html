@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <header></header>
+    <main>
+
+        <h1>Tro på det...</h1>
+        <section>
+            <img src="img1.png" alt="">
+
+            <button>Videre</button>
+            <p>Billeder brugt med tilladelse af Rasmus</p>
+
+
+
+        </section>
+
+    </main>
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            position: relative;
+            right: -90vw;
+        }
+
+        section {}
+
+        img {
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        let slideshow = ['img1', 'img2', 'img3', 'img4', 'img5', 'img6', 'img7', 'img8']
+        console.log(slideshow.length);
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            let first = slideshow[0]
+            let last = slideshow[slideshow.length - 7]
+        }
+    </script>
+
+</body></html>
