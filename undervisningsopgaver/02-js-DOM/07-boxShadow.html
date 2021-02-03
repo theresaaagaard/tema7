@@ -71,11 +71,6 @@
             box-shadow: 42px 5px 60px 0px rgba(169, 118, 166, 0.75;
             }
 
-            /*
-        article {
-            box-shadow: -42px 5px 60px 0px rgba(169, 118, 166, 0.75);
-        }
-*/
     </style>
 
     <script>
@@ -97,8 +92,32 @@
         nyArtikel.innerHTML = "<img src=billede.png> <h1>Ny overskrift<h1><p>lorem ipsum<p>"
 
 
-        //        const shadow = document.querySelector("article");
-        document.querySelector("article").classList.toggle(".shadow");
+        //variabel for alle articels
+        const allArticles = document.querySelectorAll("article");
+
+        //variabel der kan vælge i article-arrayet(array er automatisk oprretet vha. querySelectorAll)//
+        let i = 0;
+
+        //"I"- variablen bruges til at tælle op på variablen allArticals
+        for (let i = 0; i < allArticles.length; i++) {
+            allArticles[i].classList.add("shadow");
+        }
+
+        // Tilføj/fjern klassen fra "this" i allArticle-arrayet
+        allArticles.forEach(article => article.addEventListener("mouseover", removeBoxShadow));
+
+        function removeBoxShadow() {
+            this.classList.remove("shadow");
+        }
+
+        allArticles.forEach(article => article.addEventListener("mouseout", addBoxShadow));
+
+        function addBoxShadow() {
+            this.classList.add("shadow");
+        }
+
     </script>
 
-</body></html>
+</body>
+
+</html>
