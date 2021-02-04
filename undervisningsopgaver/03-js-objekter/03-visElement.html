@@ -1,0 +1,54 @@
+<article id="dyr">
+    <h3></h3>
+    <img src="" alt="">
+    <p></p>
+
+</article>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", start);
+
+    function start() {
+        console.log("DOMContentLoaded");
+    }
+
+
+
+
+
+
+    //ØVELSE 1
+    //erklær en variabel, dyr, som et objekt og giv den 4 properties med tilhørende værdier
+    //objekt=dyr
+    //property=navn
+    //værdi=gris
+
+    const dyr = {
+        "navn": "gris",
+        "type": "pattedyr",
+        "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+        "levested": "svinefarme"
+    }
+
+    console.log(dyr);
+
+
+    //ØVELSE 2
+    //    //få sat teksten i konsollen fra øvelse 1 op i article-tagget
+    //    const destination = document.querySelector("#dyr");
+    //
+    //    destination.querySelector("p").textContent = "Dyr: " + dyr.navn + ", type: " + dyr.type + ", levested: " + dyr.levested;
+    //    destination.querySelector("img").src = dyr.billede;
+
+
+    //ØVELSE 3
+    //Sæt det struktureret op
+
+    const destination = document.querySelector("#dyr");
+
+    destination.querySelector("h3").textContent = "Dyr: " + dyr.navn;
+    destination.querySelector("img").src = dyr.billede;
+    destination.querySelector("p").textContent = "Type: " + dyr.type + ", levested: " + dyr.levested;
+
+</script>
