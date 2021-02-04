@@ -63,12 +63,15 @@
 
         //opret funktion til at skifte billede ved at henvise til array og tælleren
         function skiftBillede() {
-            if (number < 7) {
+            billede.src = billeder[number];
+            if (number <= 6) {
                 number++;
-                billede.src = billeder[number];
+                knap.textContent = "Videre";
+
             } else {
+                knap.textContent = "Forfra";
                 number = 0;
-                billede.src = billeder[number];
+
             }
         }
 

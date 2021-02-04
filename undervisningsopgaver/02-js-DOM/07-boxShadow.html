@@ -14,13 +14,13 @@
 
         <h2>Undertitel</h2>
         <section>
-            <article class="article1">
+            <article class="shadow">
                 <img src="https://placeimg.com/400/300/any" alt="" class="first">
                 <h3 class="overskrift_1">Article 1</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quos itaque earum. Nulla illum nemo quasi. Quibusdam magnam unde, quia odit fugit. Non quo repudiandae nulla similique pariatur maiores, necessitatibus.</p>
             </article>
 
-            <article class="article2"><img src="https://placeimg.com/400/300/any" alt="" class="second">
+            <article class="shadow"><img src="https://placeimg.com/400/300/any" alt="" class="second">
                 <h3 class="overskrift_2">Article 2</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quos itaque earum. Nulla illum nemo quasi. Quibusdam magnam unde, quia odit fugit. Non quo repudiandae nulla similique pariatur maiores, necessitatibus.</p>
             </article>
@@ -68,8 +68,8 @@
         }
 
         .shadow {
-            box-shadow: 42px 5px 60px 0px rgba(169, 118, 166, 0.75;
-            }
+            box-shadow: 42px 5px 60px 0px rgba(169, 118, 166, 0.75);
+        }
 
     </style>
 
@@ -79,6 +79,7 @@
         console.log(nyArtikel);
         let article = document.querySelector("article")
 
+        nyArtikel.classList.add("shadow");
         //Nyt h3 element
         let overskrift = document.createElement("h3");
         //Tekst til overskrift
