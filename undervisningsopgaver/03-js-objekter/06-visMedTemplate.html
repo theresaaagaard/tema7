@@ -1,0 +1,66 @@
+<section class="data-container"></section>
+<template>
+    <article class="dyr">
+        <h3></h3>
+        <p class="type"></p>
+        <p class="levested"></p>
+        <img>
+    </article>
+</template>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", visDyr);
+
+    //lav et array med dyrene, vis det i console
+    let dyr = [{
+            "navn": "gris",
+            "type": "pattedyr",
+            "levested": "svinefarme",
+            "billede": "http://mabe-kea.dk/E19/pics/pig.png"
+        },
+        {
+            "navn": "frø",
+            "type": "amfibie",
+            "levested": "vandhul",
+            "billede": "http://mabe-kea.dk/E19/pics/frog.png"
+        },
+        {
+            "navn": "ræv",
+            "type": "pattedyr",
+            "levested": "skov",
+            "billede": "http://mabe-kea.dk/E19/pics/fox.png"
+        },
+        {
+            "navn": "sild",
+            "type": "fisk",
+            "levested": "hav",
+            "billede": "http://mabe-kea.dk/E19/pics/sild.jpg"
+        },
+        {
+            "navn": "krokodille",
+            "type": "krybdyr",
+            "levested": "flod",
+            "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg"
+        }
+    ]
+
+    function visDyr() {
+        const container = document.querySelector(".data-container");
+        const dyrTemplate = document.querySelector("template");
+        //løb dyrelisten igenne, og indsæt data i en template
+        dyr.forEach(enkeltDyr => {
+            //placer dyr i html
+            let klon = dyrTemplate.cloneNode(true).content;
+            klon.querySelector("h3").textContent = enkeltDyr.navn;
+            klon.querySelector(".type").textContent = enkeltDyr.type;
+            klon.querySelector(".levested").textContent = enkeltDyr.levested;
+            klon.querySelector("img").src = enkeltDyr.billede;
+            klon.querySelector("img").alt = enkeltDyr.navn;
+
+            container.appendChild(klon);
+
+        })
+    }
+
+</script>
