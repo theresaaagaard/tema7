@@ -1,0 +1,43 @@
+<article id="dyr">
+    <h3></h3>
+    <p></p>
+    <img src="" alt="">
+</article>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", start);
+
+    function start() {
+        console.log("DOMContentLoaded");
+    }
+
+
+
+
+
+
+    //ØVELSE 1
+    //erklær en variabel, dyr, som et objekt og giv den 4 properties med tilhørende værdier
+    //objekt=dyr
+    //property=navn
+    //værdi=gris
+
+    const dyr = {
+        "navn": "gris",
+        "type": "pattedyr",
+        "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+        "levested": "svinefarme"
+    }
+
+    console.log(dyr);
+
+
+    //ØVELSE 2
+    //få sat teksten i konsollen fra øvelse 1 op i article-tagget
+    const destination = document.querySelector("#dyr");
+
+    destination.querySelector("p").textContent = "Dyr: " + dyr.navn + ", type: " + dyr.type + ", levested: " + dyr.levested;
+    destination.querySelector("img").src = dyr.billede;
+
+</script>
