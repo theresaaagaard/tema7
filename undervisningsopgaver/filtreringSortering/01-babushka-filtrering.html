@@ -37,7 +37,6 @@
         .valgt {
             background-color: #f484e2;
         }
-
     </style>
 
 </head>
@@ -48,7 +47,7 @@
         <h1>Forside</h1>
         <nav>
             <button data-kategori="alle" class="valgt">Forside</button>
-            <button data-kategori="foretter">Foretter</button>
+            <button data-kategori="forretter">Forretter</button>
             <button data-kategori="hovedretter">Hovedretter</button>
             <button data-kategori="desserter">Desserter</button>
             <button data-kategori="drikkevarer">Drikkevarer</button>
@@ -73,9 +72,8 @@
         const medieurl = "https://babushka-dd8a.restdb.io/media/";
         const myHeaders = {
 
-            "x-apikey": "600ec2fb1346a1524ff12de4",
-            "Access-Control-Allow-Origin": "*",
-            "Mode": "no-cors"
+            "x-apikey": "600ec2fb1346a1524ff12de4"
+
         }
 
         document.addEventListener("DOMContentLoaded", start)
@@ -91,7 +89,7 @@
         }
 
         function filtrerKategorier() {
-            filter = this.dataset.menu;
+            filter = this.dataset.kategori;
 
             document.querySelector(".valgt").classList.remove("valgt");
             this.classList.add("valgt");
@@ -103,10 +101,10 @@
 
 
         async function loadJSON() {
-            const JSONData = await fetch("https://babushka-dd8a.restdb.io/menu", {
+            const JSONData = await fetch("https://babushka-dd8a.restdb.io/rest/menu", {
                 headers: myHeaders
             });
-            personer = await JSONData.json();
+            kategorier = await JSONData.json();
             console.log("Kategorier", kategorier);
             visKategorier();
         }
@@ -119,7 +117,7 @@
 
             kategorier.forEach(kategori => {
 
-                if (filter == kategori.menu || filter == "alle") {
+                if (filter == kategori.kategori || filter == "alle") {
                     // loop igennem json
                     const klon = skabelon.cloneNode(true);
                     klon.querySelector(".navn").textContent = kategori.navn;
@@ -134,8 +132,5 @@
 
             })
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
