@@ -20,6 +20,7 @@
         border: 1px solid;
         border-radius: 1em;
     }
+
 </style>
 
 <body>
@@ -68,7 +69,7 @@
             document.querySelector(".pris").textContent = kategori.pris;
             document.querySelector(".kortbeskrivelse").textContent = kategori.kortbeskrivelse;
             document.querySelector(".langbeskrivelse").textContent = kategori.langbeskrivelse;
-            document.querySelector(".oprindelsesregion").textContent = kategori.oprindelsesregion;
+            document.querySelector(".oprindelsesregion").textContent = kategori.oprindelsesregion + " er hvor retten oprindeligt stammer fra.";
             document.querySelector(".billede").src = medieurl + kategori.billede;
             document.querySelector("button").addEventListener("click", tilbageKnap);
         }
@@ -76,5 +77,8 @@
         function tilbageKnap() {
             history.back();
         }
+
     </script>
-</body></html>
+</body>
+
+</html>

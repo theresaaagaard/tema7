@@ -7,7 +7,8 @@
     <title>Bistro Babushka</title>
     <style>
         body {
-            font-family: sans-serif;
+            font-family: Satisfy regular;
+
         }
 
         img {
@@ -40,9 +41,26 @@
             justify-content: center;
         }
 
+        h2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        p {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
         .valgt {
             border-color: #f57fe2;
         }
+
+        .pris {
+            font-size: 1.5rem;
+        }
+
     </style>
 
 </head>
@@ -127,10 +145,9 @@
                     // loop igennem json
                     const klon = skabelon.cloneNode(true);
                     klon.querySelector(".navn").textContent = kategori.navn;
-                    klon.querySelector(".pris").textContent = kategori.pris;
+                    klon.querySelector(".pris").textContent = kategori.pris + " kr.";
                     klon.querySelector(".kortbeskrivelse").textContent = kategori.kortbeskrivelse;
-                    klon.querySelector(".langbeskrivelse").textContent = kategori.langbeskrivelse;
-                    klon.querySelector(".oprindelsesregion").textContent = kategori.oprindelsesregion;
+
                     klon.querySelector(".billede").src = medieurl + kategori.billede;
                     klon.querySelector(".billede").alt = medieurl + kategori.navn;
                     //tilføjer her en click funktion til alle retter, så vi kan få et mere detaljeret view (single view) når vi klikker.
@@ -144,5 +161,8 @@
         function visDetaljer(kategori) {
             location.href = `02-babushka-detalje.html?id=${kategori._id}`;
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
