@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="">
 </head>
 <style>
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
     #liste {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -16,9 +23,78 @@
     }
 
     .menu {
-        padding: 1em;
+        padding: 80px;
         border: 1px solid;
         border-radius: 1em;
+    }
+
+    button {
+        cursor: pointer;
+        border: none;
+        padding: 10px;
+        background-color: #ebdac4;
+        border-radius: 0.5em;
+        position: absolute;
+        top: 7rem;
+        left: 6rem;
+    }
+
+    body {
+        font-family: Satisfy regular;
+        background-color: #fcead3;
+
+    }
+
+    .menu {
+        margin: 60px;
+        padding: 1em;
+        border: 1px solid;
+        border-radius: 0.5em;
+
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        grid-gap: 10px;
+
+    }
+
+    h1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    h2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    p {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 30px;
+    }
+
+    .valgt {
+        border-color: #f57fe2;
+    }
+
+    .pris {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .kortbeskrivelse {
+        font-size: 1.3rem;
+    }
+
+    .langbeskrivelse {
+        font-size: 1.3rem;
     }
 
 </style>
@@ -65,12 +141,14 @@
         }
 
         function visRet() {
-            document.querySelector(".navn").textContent = kategori.navn;
-            document.querySelector(".pris").textContent = kategori.pris;
+            document.querySelector(".navn").textContent = kategori.navn + " - " +
+                kategori.pris + " kr.";
+
             document.querySelector(".kortbeskrivelse").textContent = kategori.kortbeskrivelse;
             document.querySelector(".langbeskrivelse").textContent = kategori.langbeskrivelse;
-            document.querySelector(".oprindelsesregion").textContent = kategori.oprindelsesregion + " er hvor retten oprindeligt stammer fra.";
+
             document.querySelector(".billede").src = medieurl + kategori.billede;
+            document.querySelector(".oprindelsesregion").textContent = kategori.oprindelsesregion + " er hvor retten oprindeligt stammer fra.";
             document.querySelector("button").addEventListener("click", tilbageKnap);
         }
 

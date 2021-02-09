@@ -8,6 +8,7 @@
     <style>
         body {
             font-family: Satisfy regular;
+            background-color: #ebdac4;
 
         }
 
@@ -17,21 +18,29 @@
 
         #liste {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
             grid-gap: 1em;
             margin: 2em;
+            padding: 50px;
         }
 
+
         .menu {
-            padding: 1em;
+            padding: 40px;
             border: 1px solid;
-            border-radius: 1em;
+            border-radius: 0.5em;
+            cursor: pointer;
+
+        }
+
+        .menu h2 {
+            text-transform: uppercase;
         }
 
         nav {
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: flex-end;
             grid-gap: 10px;
         }
 
@@ -39,6 +48,7 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
+
         }
 
         h2 {
@@ -48,17 +58,35 @@
         }
 
         p {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
         }
 
         .valgt {
-            border-color: #f57fe2;
+            border-color: #f8cc94;
+
         }
 
         .pris {
             font-size: 1.5rem;
+        }
+
+        button {
+            cursor: pointer;
+            border: 1px solid #ebdac4;
+            padding: 10px;
+            background-color: #ebdac4;
+            border-radius: 0.5em;
+            transition-duration: 0.4s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #e2a764;
+
+            color: white;
         }
 
     </style>
@@ -68,16 +96,19 @@
 <body>
 
     <header>
-        <h1>Alle retter</h1>
+        <h1>MENU</h1>
         <nav>
-            <button data-kategori="alle" class="valgt">Forside</button>
-            <button data-kategori="forretter">Forretter</button>
-            <button data-kategori="hovedretter">Hovedretter</button>
-            <button data-kategori="desserter">Desserter</button>
-            <button data-kategori="drikkevarer">Drikkevarer</button>
+            <button data-kategori="alle">ALLE RETTER</button>
+            <button data-kategori="forretter">FORRETTER</button>
+            <button data-kategori="hovedretter">HOVEDRETTER</button>
+            <button data-kategori="desserter">DESSERTER</button>
+            <button data-kategori="drikkevarer">DRIKKEVARER</button>
         </nav>
     </header>
+
+    <h2 class="valgt">BISTRO BABUSHKA</h2>
     <section id="liste"></section>
+
 
     <template>
         <article class="menu">
@@ -85,8 +116,8 @@
             <p class="pris"></p>
             <p class="kortbeskrivelse"></p>
             <p class="langbeskrivelse"></p>
-            <p class="oprindelsesregion"></p>
             <img src="" alt="" class="billede">
+            <p class="oprindelsesregion"></p>
         </article>
     </template>
 
@@ -144,12 +175,13 @@
                 if (filter == kategori.kategori || filter == "alle") {
                     // loop igennem json
                     const klon = skabelon.cloneNode(true);
-                    klon.querySelector(".navn").textContent = kategori.navn;
-                    klon.querySelector(".pris").textContent = kategori.pris + " kr.";
-                    klon.querySelector(".kortbeskrivelse").textContent = kategori.kortbeskrivelse;
+                    klon.querySelector(".navn").textContent = kategori.navn + " - " + kategori.pris + " kr.";
 
-                    klon.querySelector(".billede").src = medieurl + kategori.billede;
-                    klon.querySelector(".billede").alt = medieurl + kategori.navn;
+                    klon.querySelector(".langbeskrivelse").textContent = kategori.langbeskrivelse;
+                    //                    klon.querySelector(".kortbeskrivelse").textContent = kategori.kortbeskrivelse;
+
+                    //                    klon.querySelector(".billede").src = medieurl + kategori.billede;
+                    // klon.querySelector(".billede").alt = medieurl + kategori.navn;
                     //tilføjer her en click funktion til alle retter, så vi kan få et mere detaljeret view (single view) når vi klikker.
                     klon.querySelector(".menu").addEventListener("click", () => visDetaljer(kategori));
                     dest.appendChild(klon);
