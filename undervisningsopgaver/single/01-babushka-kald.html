@@ -16,12 +16,7 @@
             width: 100%;
         }
 
-        nav {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            grid-gap: 10px;
-        }
+
 
         #liste {
             padding: 50px;
@@ -105,6 +100,59 @@
             text-align: center;
         }
 
+        .hidden {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        #menuknap {
+            position: absolute;
+            top: 3vw;
+            right: 0;
+            display: inline-block;
+            transform-origin: top right;
+            font-size: 30px;
+            color: #000;
+            margin-right: 16px;
+            height: 100%;
+        }
+
+        #menu {
+            list-style-type: none;
+            transition: transform: .3s;
+            border: 1px solid black;
+            display: inline-block;
+            align-items: center;
+        }
+
+        @media only screen and (min-width: 600px) {
+            #menuknap {
+                display: none;
+            }
+
+            #menu.hidden {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+
+            #menu button {
+                display: inline-block;
+            }
+
+            #menu {
+                border: none;
+            }
+
+
+            nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                grid-gap: 10px;
+            }
+        }
+
     </style>
 
 </head>
@@ -115,12 +163,17 @@
         <img class="logo" src="logo1.svg" alt="">
 
         <h1>MENU</h1>
+
         <nav>
-            <button data-kategori="alle">ALLE RETTER</button>
-            <button data-kategori="forretter">FORRETTER</button>
-            <button data-kategori="hovedretter">HOVEDRETTER</button>
-            <button data-kategori="desserter">DESSERTER</button>
-            <button data-kategori="drikkevarer">DRIKKEVARER</button>
+            <div id="menuknap">☰</div>
+            <ul id="menu" class="hidden">
+                <button data-kategori="alle">ALLE RETTER</button>
+                <button data-kategori="forretter">FORRETTER</button>
+                <button data-kategori="hovedretter">HOVEDRETTER</button>
+                <button data-kategori="desserter">DESSERTER</button>
+                <button data-kategori="drikkevarer">DRIKKEVARER</button>
+                <button data-kategori="sideorders">SIDEORDERS</button>
+            </ul>
         </nav>
     </header>
 
@@ -132,10 +185,12 @@
         <article class="menu">
             <h2 class="navn"></h2>
             <p class="pris"></p>
+            <p class="sideorders"></p>
             <p class="kortbeskrivelse"></p>
             <p class="langbeskrivelse"></p>
             <img src="" alt="" class="billede">
             <p class="oprindelsesregion"></p>
+
 
         </article>
 
@@ -197,7 +252,9 @@
                     // loop igennem json
                     const klon = skabelon.cloneNode(true);
                     klon.querySelector(".navn").textContent = kategori.navn + " - " + kategori.pris + " kr.";
+                    klon.querySelector(".sideorders").textContent = kategori.kortbeskrivelse;
                     klon.querySelector(".langbeskrivelse").textContent = kategori.langbeskrivelse;
+
                     //                    klon.querySelector(".kortbeskrivelse").textContent = kategori.kortbeskrivelse;
 
                     //                    klon.querySelector(".billede").src = medieurl + kategori.billede;
@@ -212,6 +269,17 @@
 
         function visDetaljer(kategori) {
             location.href = `02-babushka-detalje.html?id=${kategori._id}`;
+        }
+
+        //burgermenu
+
+        document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+
+        function toggleMenu() {
+            document.querySelector("#menu").classList.toggle("hidden");
+
+
+
         }
 
     </script>
