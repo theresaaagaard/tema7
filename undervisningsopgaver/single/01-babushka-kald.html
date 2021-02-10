@@ -17,17 +17,14 @@
         }
 
         #liste {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
-            grid-gap: 1em;
-            margin: 2em;
             padding: 50px;
         }
 
 
         .menu {
+            margin: 20px;
             padding: 40px;
-            border: 1px solid;
+            border: 0.5px solid;
             border-radius: 0.5em;
             cursor: pointer;
 
@@ -89,6 +86,18 @@
             color: white;
         }
 
+        .logo {
+            position: absolute;
+            top: 1vw;
+            left: 5vw;
+            width: 15vw;
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+        }
+
     </style>
 
 </head>
@@ -96,6 +105,7 @@
 <body>
 
     <header>
+        <img class="logo" src="logo1.svg" alt="">
         <h1>MENU</h1>
         <nav>
             <button data-kategori="alle">ALLE RETTER</button>
@@ -118,9 +128,12 @@
             <p class="langbeskrivelse"></p>
             <img src="" alt="" class="billede">
             <p class="oprindelsesregion"></p>
+
         </article>
+
     </template>
 
+    <footer>All Rights Reserved by &copy;t-aagaard.dk 2021</footer>
 
     <script>
         const header = document.querySelector("header h1");
@@ -176,7 +189,6 @@
                     // loop igennem json
                     const klon = skabelon.cloneNode(true);
                     klon.querySelector(".navn").textContent = kategori.navn + " - " + kategori.pris + " kr.";
-
                     klon.querySelector(".langbeskrivelse").textContent = kategori.langbeskrivelse;
                     //                    klon.querySelector(".kortbeskrivelse").textContent = kategori.kortbeskrivelse;
 

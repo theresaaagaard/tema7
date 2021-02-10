@@ -22,35 +22,43 @@
         margin: 2em;
     }
 
-    .menu {
-        padding: 80px;
-        border: 1px solid;
-        border-radius: 1em;
-    }
 
     button {
         cursor: pointer;
         border: none;
         padding: 10px;
-        background-color: #ebdac4;
+        background-color: #ebcda5;
         border-radius: 0.5em;
         position: absolute;
-        top: 7rem;
-        left: 6rem;
+        top: 16vw;
+        left: 14vw;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background-color: #e2a764;
+        color: white;
+    }
+
+    .logo {
+        position: absolute;
+        top: 1vw;
+        left: 5vw;
+        width: 15vw;
+        height: auto;
     }
 
     body {
         font-family: Satisfy regular;
-        background-color: #fcead3;
+        background-color: #ebdac4;
 
     }
 
     .menu {
-        margin: 60px;
+        margin: 180px;
         padding: 1em;
         border: 1px solid;
         border-radius: 0.5em;
-
     }
 
     nav {
@@ -100,7 +108,7 @@
 </style>
 
 <body>
-
+    <img class="logo" src="logo1.svg" alt="">
 
     <section id="liste"></section>
 
@@ -114,7 +122,7 @@
         <img src="" alt="" class="billede">
     </article>
 
-    <button>Tilbage</button>
+    <button>TILBAGE</button>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
@@ -148,7 +156,7 @@
             document.querySelector(".langbeskrivelse").textContent = kategori.langbeskrivelse;
 
             document.querySelector(".billede").src = medieurl + kategori.billede;
-            document.querySelector(".oprindelsesregion").textContent = kategori.oprindelsesregion + " er hvor retten oprindeligt stammer fra.";
+            document.querySelector(".oprindelsesregion").textContent = "Retten stammer oprindeligt fra " + kategori.oprindelsesregion;
             document.querySelector("button").addEventListener("click", tilbageKnap);
         }
 
